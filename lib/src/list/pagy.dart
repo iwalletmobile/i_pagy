@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ipagy/ipagy.dart';
 import 'package:ipagy/src/utils/constants/pagy_constants.dart';
 import 'package:ipagy/src/utils/extension/object_extension.dart';
+import 'package:ipagy/src/utils/extension/widget_extension.dart';
 import 'package:ipagy/src/widgets/animated_list_item.dart';
 import 'package:ipagy/src/widgets/default_empty_widget.dart';
 import 'package:ipagy/src/widgets/default_error_widget.dart';
@@ -42,13 +43,14 @@ class Pagy<T> extends StatefulWidget {
     this.loadingWidget = const DefaultLoadingWidget(),
     this.emptyWidget = const DefaultEmptyWidget(),
     this.scrollDirection = Axis.vertical,
-    this.padding,
+    this.margin,
     this.listType = PagyType.listView,
     this.separatedWidget,
     this.errorWidget = const DefaultErrorWidget(),
     this.firstLoadingItemCount = 1,
     this.gridDelegate,
     this.physics,
+    this.itemPadding,
   })  : assert(
           listType != PagyType.grid || gridDelegate != null,
           PagyConstants.gridAssert,
@@ -77,7 +79,7 @@ class Pagy<T> extends StatefulWidget {
   final Axis scrollDirection;
 
   /// Padding of the list.
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   /// Type of list.
   ///
@@ -104,6 +106,9 @@ class Pagy<T> extends StatefulWidget {
   /// Creates a scrollable, linear array of widgets that are created on demand.
   final ScrollPhysics? physics;
 
+  /// Padding of each item created by [Pagy]
+  final EdgeInsetsGeometry? itemPadding;
+
   @override
   State<Pagy<T>> createState() => _PagyState<T>();
 }
@@ -120,7 +125,7 @@ class _PagyState<T> extends State<Pagy<T>> with _PagyMixin<T> {
         scrollDirection: widget.scrollDirection,
         pagyType: widget.listType,
         isLoading: isLoading,
-        padding: widget.padding,
+        margin: widget.margin,
         gridDelegate: widget.gridDelegate,
         errorWidget: widget.errorWidget,
         loadingWidget: widget.loadingWidget,
@@ -129,6 +134,7 @@ class _PagyState<T> extends State<Pagy<T>> with _PagyMixin<T> {
         itemBuilder: widget.itemBuilder,
         separatedWidget: widget.separatedWidget,
         physics: widget.physics,
+        itemPadding: widget.itemPadding,
       ),
     );
   }

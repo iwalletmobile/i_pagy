@@ -14,10 +14,11 @@ class _ConditionalListView<T> extends StatelessWidget {
     required this.errorWidget,
     this.pagyType = PagyType.listView,
     this.firstLoadingItemCount = 1,
-    this.padding,
+    this.margin,
     this.separatedWidget,
     this.gridDelegate,
     this.physics,
+    this.itemPadding,
   });
 
   /// Data to be displayed
@@ -45,7 +46,7 @@ class _ConditionalListView<T> extends StatelessWidget {
   final Axis scrollDirection;
 
   /// Padding around the list/grid
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   /// Number of items to display initially while loading
   final int firstLoadingItemCount;
@@ -65,6 +66,9 @@ class _ConditionalListView<T> extends StatelessWidget {
   /// Physics of the scroll view
   final ScrollPhysics? physics;
 
+  /// Padding of each item created by [Pagy]
+  final EdgeInsetsGeometry? itemPadding;
+
   @override
   Widget build(BuildContext context) {
     switch (pagyType) {
@@ -80,8 +84,8 @@ class _ConditionalListView<T> extends StatelessWidget {
                     gridDelegate: gridDelegate!,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
-                    padding: padding,
-                    itemBuilder: (context, index) => _buildItem(context, index),
+                    padding: margin,
+                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
                   );
       case PagyType.listView:
         return hasError
@@ -94,8 +98,8 @@ class _ConditionalListView<T> extends StatelessWidget {
                     physics: physics,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
-                    padding: padding,
-                    itemBuilder: (context, index) => _buildItem(context, index),
+                    padding: margin,
+                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
                   );
       case PagyType.separated:
         return hasError
@@ -108,8 +112,8 @@ class _ConditionalListView<T> extends StatelessWidget {
                     physics: physics,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
-                    padding: padding,
-                    itemBuilder: (context, index) => _buildItem(context, index),
+                    padding: margin,
+                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
                     separatorBuilder: (context, _) => separatedWidget ?? const Divider(),
                   );
       case PagyType.animated:
@@ -124,8 +128,8 @@ class _ConditionalListView<T> extends StatelessWidget {
                     itemCount: _calculateItemCount,
                     physics: physics,
                     scrollDirection: scrollDirection,
-                    padding: padding,
-                    itemBuilder: (context, index) => _buildItem(context, index, animated: true),
+                    padding: margin,
+                    itemBuilder: (context, index) => _buildItem(context, index, animated: true).setPadding(itemPadding),
                   );
     }
   }

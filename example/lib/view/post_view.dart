@@ -45,7 +45,8 @@ class _PostViewState extends State<PostView> {
         items: _posts,
         loadMoreItems: _loadPosts,
         listType: _paginationListType,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        itemPadding: const EdgeInsets.all(8),
         itemBuilder: (BuildContext context, int index) => Card(
           child: ListTile(
             leading: Text(_posts![index].id.toString()),
