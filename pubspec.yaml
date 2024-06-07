@@ -1,12 +1,13 @@
 name: ipagy
 description: "ipagy offers a powerful tool for Flutter developers with its main features, making paging easy and effective."
 version: 0.0.1
-repository:
+homepage: https://github.com/iwalletmobile/i_pagy
+repository: https://github.com/iwalletmobile/i_pagy
 issue_tracker:
-topics: [pagination]
+topics: [pagination, list_view, list]
 
 environment:
-  sdk: '>=2.12.0 <4.0.0'
+  sdk: ">=2.12.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
