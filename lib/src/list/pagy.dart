@@ -36,6 +36,7 @@ typedef ItemBuilder = Widget Function(BuildContext context, int index);
 class Pagy<T> extends StatefulWidget {
   const Pagy({
     Key? key,
+    this.scrollController,
     required this.items,
     required this.loadMoreItems,
     required this.itemBuilder,
@@ -56,6 +57,9 @@ class Pagy<T> extends StatefulWidget {
           PagyConstants.gridAssert,
         ),
         super(key: key);
+
+  /// To control ListView scroll .
+  final ScrollController? scrollController;
 
   /// List of items to display.
   final List<T>? items;

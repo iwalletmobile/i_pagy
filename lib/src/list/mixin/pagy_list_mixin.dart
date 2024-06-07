@@ -17,7 +17,7 @@ mixin _PagyMixin<T> on State<Pagy<T>> {
   @override
   void initState() {
     super.initState();
-    scrollController = ScrollController()
+    scrollController = (widget.scrollController ?? ScrollController())
       ..addListener(() {
         if ((scrollController.position.pixels >= scrollController.position.maxScrollExtent && !(showLoadingNotifier.value)) && widget.items != null) {
           _setLoading(true);
