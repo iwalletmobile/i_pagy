@@ -1,0 +1,21 @@
+name: ipagy
+description: "ipagy offers a powerful tool for Flutter developers with its main features, making paging easy and effective."
+version: 0.0.1
+repository:
+issue_tracker:
+topics: [pagination]
+
+environment:
+  sdk: '>=2.12.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
