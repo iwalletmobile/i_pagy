@@ -15,12 +15,13 @@ No need to define a ScrollController, we have already integrated the controller 
   - [Installation](#installation)
   - [Import](#import)
   - [Usage](#usage)
+  - [Contributing](#contributing)
   - [License](#license)
 
 ## Installation
 ```yaml
 dependencies:
-  ipagy: <latest version>
+  ipagy: ^0.0.3
 ```
 
 ## Import
@@ -126,6 +127,10 @@ class _PostViewState extends State<PostView> {
   }
 }
 ```
+
+# Contributing
+
+If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug, or adding a cool new feature), please carefully review our [contribution guide](./CONTRIBUTING.md) and send us your [pull request](https://github.com/iwalletmobile/i_pagy/pulls).
 
 ## License
 

@@ -25,7 +25,8 @@ class _PostViewState extends State<PostView> {
   }
 
   Future<void> _loadPosts() async {
-    final List<Post>? response = await _postService.fetchAllPosts(page: currentPage);
+    final List<Post>? response =
+        await _postService.fetchAllPosts(page: currentPage);
     if (response?.isNotEmpty ?? false) {
       setState(() {
         _posts ??= [];

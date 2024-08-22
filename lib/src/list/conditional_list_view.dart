@@ -78,14 +78,17 @@ class _ConditionalListView<T> extends StatelessWidget {
             : data.isNotNull && data!.isEmpty
                 ? emptyDataWidget
                 : GridView.builder(
-                    key: data.isNotNull && data!.isNotEmpty ? ObjectKey(data!.first) : null,
+                    key: data.isNotNull && data!.isNotEmpty
+                        ? ObjectKey(data!.first)
+                        : null,
                     controller: controller,
                     physics: physics,
                     gridDelegate: gridDelegate!,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
-                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
+                    itemBuilder: (context, index) =>
+                        _buildItem(context, index).setPadding(itemPadding),
                   );
       case PagyType.listView:
         return hasError
@@ -93,13 +96,16 @@ class _ConditionalListView<T> extends StatelessWidget {
             : data.isNotNull && (data! as List).isEmpty
                 ? emptyDataWidget
                 : ListView.builder(
-                    key: data.isNotNull && data!.isNotEmpty ? ObjectKey(data!.first) : null,
+                    key: data.isNotNull && data!.isNotEmpty
+                        ? ObjectKey(data!.first)
+                        : null,
                     controller: controller,
                     physics: physics,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
-                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
+                    itemBuilder: (context, index) =>
+                        _buildItem(context, index).setPadding(itemPadding),
                   );
       case PagyType.separated:
         return hasError
@@ -107,14 +113,18 @@ class _ConditionalListView<T> extends StatelessWidget {
             : data.isNotNull && data!.isEmpty
                 ? emptyDataWidget
                 : ListView.separated(
-                    key: data.isNotNull && data!.isNotEmpty ? ObjectKey(data!.first) : null,
+                    key: data.isNotNull && data!.isNotEmpty
+                        ? ObjectKey(data!.first)
+                        : null,
                     controller: controller,
                     physics: physics,
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
-                    itemBuilder: (context, index) => _buildItem(context, index).setPadding(itemPadding),
-                    separatorBuilder: (context, _) => separatedWidget ?? const Divider(),
+                    itemBuilder: (context, index) =>
+                        _buildItem(context, index).setPadding(itemPadding),
+                    separatorBuilder: (context, _) =>
+                        separatedWidget ?? const Divider(),
                   );
       case PagyType.animated:
         return hasError
@@ -122,14 +132,18 @@ class _ConditionalListView<T> extends StatelessWidget {
             : data.isNotNull && data!.isEmpty
                 ? emptyDataWidget
                 : ListView.builder(
-                    key: data.isNotNull && data!.isNotEmpty ? ObjectKey(data!.first) : null,
+                    key: data.isNotNull && data!.isNotEmpty
+                        ? ObjectKey(data!.first)
+                        : null,
                     cacheExtent: 0,
                     controller: controller,
                     itemCount: _calculateItemCount,
                     physics: physics,
                     scrollDirection: scrollDirection,
                     padding: margin,
-                    itemBuilder: (context, index) => _buildItem(context, index, animated: true).setPadding(itemPadding),
+                    itemBuilder: (context, index) =>
+                        _buildItem(context, index, animated: true)
+                            .setPadding(itemPadding),
                   );
     }
   }
@@ -147,7 +161,8 @@ class _ConditionalListView<T> extends StatelessWidget {
     } else if (isLoading) {
       return loadingWidget;
     } else {
-      return const SizedBox.shrink(); // if not loading and index exceeds data length
+      return const SizedBox
+          .shrink(); // if not loading and index exceeds data length
     }
   }
 
@@ -156,7 +171,8 @@ class _ConditionalListView<T> extends StatelessWidget {
     if (data.isNull) {
       return firstLoadingItemCount;
     } else if (isLoading || data!.isEmpty) {
-      return data!.length + 1; // Add 1 for loading indicator or empty data widget
+      return data!.length +
+          1; // Add 1 for loading indicator or empty data widget
     } else {
       return data!.length;
     }
