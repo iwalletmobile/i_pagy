@@ -19,6 +19,7 @@ class _ConditionalListView<T> extends StatelessWidget {
     this.gridDelegate,
     this.physics,
     this.itemPadding,
+    this.clipBehavior = Clip.hardEdge,
   });
 
   /// Data to be displayed
@@ -69,6 +70,9 @@ class _ConditionalListView<T> extends StatelessWidget {
   /// Padding of each item created by [Pagy]
   final EdgeInsetsGeometry? itemPadding;
 
+  /// Clip behavior of the list/grid
+  final Clip clipBehavior;
+
   @override
   Widget build(BuildContext context) {
     switch (pagyType) {
@@ -87,6 +91,7 @@ class _ConditionalListView<T> extends StatelessWidget {
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
+                    clipBehavior: clipBehavior,
                     itemBuilder: (context, index) =>
                         _buildItem(context, index).setPadding(itemPadding),
                   );
@@ -104,6 +109,7 @@ class _ConditionalListView<T> extends StatelessWidget {
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
+                    clipBehavior: clipBehavior,
                     itemBuilder: (context, index) =>
                         _buildItem(context, index).setPadding(itemPadding),
                   );
@@ -121,6 +127,7 @@ class _ConditionalListView<T> extends StatelessWidget {
                     itemCount: _calculateItemCount,
                     scrollDirection: scrollDirection,
                     padding: margin,
+                    clipBehavior: clipBehavior,
                     itemBuilder: (context, index) =>
                         _buildItem(context, index).setPadding(itemPadding),
                     separatorBuilder: (context, _) =>
@@ -141,6 +148,7 @@ class _ConditionalListView<T> extends StatelessWidget {
                     physics: physics,
                     scrollDirection: scrollDirection,
                     padding: margin,
+                    clipBehavior: clipBehavior,
                     itemBuilder: (context, index) =>
                         _buildItem(context, index, animated: true)
                             .setPadding(itemPadding),

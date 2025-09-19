@@ -52,6 +52,7 @@ class Pagy<T> extends StatefulWidget {
     this.gridDelegate,
     this.physics,
     this.itemPadding,
+    this.clipBehavior = Clip.hardEdge,
   })  : assert(
           listType != PagyType.grid || gridDelegate != null,
           PagyConstants.gridAssert,
@@ -84,6 +85,9 @@ class Pagy<T> extends StatefulWidget {
 
   /// Padding of the list.
   final EdgeInsetsGeometry? margin;
+
+  /// Clip behavior of the list/grid
+  final Clip clipBehavior;
 
   /// Type of list.
   ///
@@ -139,6 +143,7 @@ class _PagyState<T> extends State<Pagy<T>> with _PagyMixin<T> {
         separatedWidget: widget.separatedWidget,
         physics: widget.physics,
         itemPadding: widget.itemPadding,
+        clipBehavior: widget.clipBehavior,
       ),
     );
   }
