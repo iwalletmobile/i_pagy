@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Add ClipBehavior for lists
+
 ## 0.0.3
 
 - Update dart format and add CONTRIBUTING.md

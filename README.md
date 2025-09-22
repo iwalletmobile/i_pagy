@@ -15,13 +15,13 @@ No need to define a ScrollController, we have already integrated the controller 
   - [Installation](#installation)
   - [Import](#import)
   - [Usage](#usage)
-  - [Contributing](#contributing)
+- [Contributing](#contributing)
   - [License](#license)
 
 ## Installation
 ```yaml
 dependencies:
-  ipagy: ^0.0.3
+  ipagy: ^0.0.4
 ```
 
 ## Import
